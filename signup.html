@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/signup.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="">
+    <div class="">
+        <form action="#" name="vacation" id="vacation">
+            <table>
+                <tr>
+                    <td>First Name</td>
+             <td><input type="text" name="fname" placeholder="First Name"></td>
+             <td><span id="errfname" class="error">this is required</span></td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+           <td><input type="text" name="lname" placeholder="Last Name"> </td>
+           <td><span id="errlname" class="error">this is required</span></td>
+                </tr>
+                <td>Email</td>
+                <td><input type="email" name="email" placeholder="Email"> </td>
+                <td><span id="erremail" class="error">this is required</span></td>
+                     </tr>
+                <tr>
+         <td>Date of Birth</td>
+         <td><select name="" id="">
+             <option value="">Day</option>
+         </select> 
+         <select name="" id="">
+            <option value="">Month</option>
+            </select> 
+            <select name="" id="">
+            <option value="">Year</option>
+         </select> </td>
+         <!-- <td><span id="errdate" class="error">this is required</span></td> -->
+             </tr> 
+             <tr>
+                 <td>Gender</td>
+             <td><input type="radio" name="gender">Male 
+             <input type="radio" name="gender">Female </td>
+             <td><span id="errgen" class="error">this is required</span></td>
+            </tr> 
+             <tr>
+                 <td>Country</td>
+           <td><select name="position" id="">
+               <option value="default"></option>
+               <option value="Bdi">Burundi</option>
+               <option value="ky">Kenya</option>
+           </select></td>
+           <td><span id="errcountry" class="error">this is required</span></td>
+            </tr>            
+            <tr>
+             <td>Password</td>
+           <td><input type="password" name="passwords" placeholder="Password"> </td>
+                </tr>
+                <tr>
+           <td>Confirm Password</td>
+            <td><input type="password" name="passwords" placeholder="Password"> </td>
+                </tr> 
+                <tr>          
+              
+             <td><input type="button" value="Submit" onclick="return validate();" ></td>
+             </tr>  
+            </table>   
+              </form>
+            </div>
+        </div> 
+        
+        <script>
+          function validate(){
+              var errors=0;
+              var spans=document.getElementsByTagName("span");
+              var fname=document.vacation.fname;
+              if(fname.value ===""){
+                    spans[0].style.visibility="visible";
+                    errors=1; 
+              }else{
+                  spans[0].style.visibility="hidden";
+                  errors=0;
+              }
+
+              var lname=document.vacation.lname;
+              if(lname.value===""){
+                  spans[1].style.visibility="visible";
+                  errors=1;
+              } else{
+                  spans[1].style.visibility="hidden";
+                  errors=0;
+              }
+
+              var email=document.vacation.email;
+              if(email.value===""){
+                  spans[2].style.visibility="visible";
+                  errors=1;
+              }else{
+                  spans[2].style.visibility="hidden";
+                  errors=0;
+              }
+              // checkbox
+              var flag=1;
+              var generror=document.getElementById("errgen");
+              var gender=document.vacation.gender;
+              for(var i in gender){
+                 if(gender[i].checked){
+                     flag=0;
+                 }
+                 if(flag==1){
+                    generror.style.visibility="visible";
+                    errors=1;   
+                 } else{
+                  generror.style.visibility="hidden";
+                  errors=0;
+              }
+              }
+              //selection options
+              var errcountry=document.getElementById("errcountry");
+              var position=document.vacation.position.value;
+              if(position==="default"){
+                  errcountry.style.visibility="visible";
+                  errors=1;
+              }else{
+                  errcountry.style.visibility="hidden";
+                  errors=0;
+              }
+           if(errors==0){
+               return true;
+           }else{
+               return false;
+           }
+          }
+        </script>
+</body>
+</html>
